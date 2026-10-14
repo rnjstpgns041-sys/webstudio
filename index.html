@@ -171,6 +171,11 @@ form { background: var(--soft); border-radius: 18px; padding: 32px; display: gri
 .send { display: flex; flex-wrap: wrap; gap: 10px; }
 .send .btn { flex: 1 1 180px; }
 
+section.block.guides { padding-bottom: 0; }
+.guide-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.guide-list a { display: block; padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; font-weight: 700; transition: border-color .15s, color .15s; }
+.guide-list a::after { content: " →"; color: var(--muted); font-weight: 500; }
+.guide-list a:hover { border-color: var(--accent); color: var(--accent); }
 footer { border-top: 1px solid var(--line); padding-block: 44px 56px; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; color: var(--muted); font-size: 14px; }
 footer strong { color: var(--ink); font-size: 16px; display: block; margin-bottom: 6px; }
 
@@ -203,6 +208,7 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
       <li><a href="#work">작업 사례</a></li>
       <li><a href="#features">제공 기능</a></li>
       <li><a href="#process">진행 과정</a></li>
+      <li><a href="#guides">제작 안내</a></li>
     </ul>
     <a class="btn" href="#contact">제작 문의</a>
   </div>
@@ -339,6 +345,42 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
       </ol>
     </div>
   </section>
+
+  <div class="wrap">
+    <section class="block guides" id="guides">
+      <div class="head">
+        <div>
+          <span class="tag">제작 안내</span>
+          <h2>업종별·궁금한 점별로 정리했습니다</h2>
+          <p>홈페이지를 처음 만드시는 사장님들이 자주 묻는 내용을 한 페이지씩 담았습니다.</p>
+        </div>
+      </div>
+      <ul class="guide-list">
+          <!--guides-->
+          <li><a href="/sosanggongin-homepage/">소상공인 홈페이지 제작</a></li>
+          <li><a href="/solo-business-homepage/">1인 사업자 홈페이지</a></li>
+          <li><a href="/jipsuri-homepage/">집수리 홈페이지 제작</a></li>
+          <li><a href="/interior-homepage/">인테리어 업체 홈페이지</a></li>
+          <li><a href="/insurance-planner-homepage/">보험설계사 홈페이지</a></li>
+          <li><a href="/restaurant-homepage/">식당 홈페이지 만들기</a></li>
+          <li><a href="/cafe-homepage/">카페 홈페이지 제작</a></li>
+          <li><a href="/cleaning-company-homepage/">청소업체 홈페이지</a></li>
+          <li><a href="/academy-homepage/">학원 강사 홈페이지</a></li>
+          <li><a href="/professional-homepage/">전문직 홈페이지 제작</a></li>
+          <li><a href="/naver-search-homepage/">네이버 검색 노출 홈페이지</a></li>
+          <li><a href="/blog-vs-homepage/">블로그 홈페이지 차이</a></li>
+          <li><a href="/homepage-cost/">홈페이지 제작 비용</a></li>
+          <li><a href="/homepage-timeline/">홈페이지 제작 기간</a></li>
+          <li><a href="/mobile-homepage/">모바일 홈페이지 제작</a></li>
+          <li><a href="/homepage-renewal/">홈페이지 리뉴얼</a></li>
+          <li><a href="/custom-domain/">홈페이지 도메인 연결</a></li>
+          <li><a href="/more-phone-calls/">홈페이지 문의 늘리는 법</a></li>
+          <li><a href="/photo-estimate/">사진 견적 문의 기능</a></li>
+          <li><a href="/homepage-maintenance/">홈페이지 수정 유지보수</a></li>
+          <!--/guides-->
+      </ul>
+    </section>
+  </div>
 
   <div class="wrap">
     <section class="block" id="contact">
