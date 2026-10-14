@@ -157,6 +157,26 @@ section.alt .chips span { background: var(--bg); }
 .price-note { margin-top: 16px; color: var(--muted); font-size: 14px; }
 @media (max-width: 960px) { .plans { grid-template-columns: 1fr; max-width: 520px; } }
 
+/* 처음이세요 */
+.basics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.basic { background: var(--soft); border-radius: 16px; padding: 26px 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.basic .q { font-size: 13px; font-weight: 700; color: var(--accent); }
+.basic h3 { font-size: 20px; font-weight: 800; }
+.basic p { color: var(--muted); font-size: 15px; }
+.basic ul { margin: 2px 0 0; padding-left: 1.1em; display: grid; gap: 4px; font-size: 15px; }
+.basic li::marker { color: var(--accent); }
+.words { margin-top: 28px; border-top: 1px solid var(--line); }
+.words h3 { font-size: 17px; font-weight: 800; padding-top: 22px; }
+.words dl { margin: 12px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 24px; font-size: 15px; }
+.words dt { font-weight: 700; }
+.words dd { margin: 0; color: var(--muted); min-width: 0; }
+.qa { border-top: 1px solid var(--line); max-width: 860px; }
+.qa details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+.qa summary { font-weight: 700; font-size: 17px; cursor: pointer; }
+.qa p { color: var(--muted); margin-top: 10px; max-width: 46em; }
+@media (max-width: 960px) { .basics { grid-template-columns: 1fr; } }
+@media (max-width: 620px) { .words dl { grid-template-columns: 1fr; gap: 2px 0; } .words dd { margin-bottom: 10px; } }
+
 /* 진행 과정 */
 .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; list-style: none; margin: 0; padding: 0; counter-reset: f; }
 .flow li { counter-increment: f; background: var(--bg); border-radius: 16px; padding: 28px 24px; min-width: 0; display: grid; gap: 10px; align-content: start; }
@@ -218,17 +238,19 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
 }
 </style>
 
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "컴퓨터를 잘 못 다루는데 괜찮을까요?", "acceptedAnswer": {"@type": "Answer", "text": "괜찮습니다. 사진과 설명을 문자나 카카오톡으로 보내 주시면 정리와 제작은 모두 제가 합니다. 완성되면 휴대폰으로 링크를 보내 드리니 눌러서 확인만 하시면 됩니다."}}, {"@type": "Question", "name": "만든 뒤에 매달 돈이 드나요?", "acceptedAnswer": {"@type": "Answer", "text": "사이트를 올려 두는 비용은 없습니다. 가게 이름 주소(예: 우리가게.com)를 쓰실 때만 그 주소 사용료가 1년에 2만원 안팎 듭니다. 무료 수정 기간이 끝난 뒤 수정을 계속 맡기시면 월 3만원입니다."}}, {"@type": "Question", "name": "만들면 바로 네이버에 나오나요?", "acceptedAnswer": {"@type": "Answer", "text": "등록은 오픈하는 날 바로 해 드리지만, 네이버가 사이트를 읽고 검색 결과에 보여 주기까지 보통 몇 주가 걸립니다. 그동안 블로그, 플레이스, 명함에 주소를 걸어 두시면 손님이 바로 들어올 수 있습니다."}}, {"@type": "Question", "name": "네이버 플레이스나 블로그가 있는데 또 필요할까요?", "acceptedAnswer": {"@type": "Answer", "text": "플레이스와 블로그는 그대로 쓰시면 됩니다. 홈페이지는 그 둘을 한곳에 모아 가게를 제대로 소개하고, 바로 연락하게 만드는 역할을 합니다. 서로 주소를 걸어 두면 손님이 오가며 더 잘 찾습니다."}}, {"@type": "Question", "name": "얼마나 걸리나요?", "acceptedAnswer": {"@type": "Answer", "text": "사진과 내용이 준비돼 있으면 한 장 소개는 며칠, 기본 홈페이지는 1~2주 정도 봅니다. 중간중간 휴대폰으로 화면을 보내 드리고 함께 고칩니다."}}, {"@type": "Question", "name": "마음에 안 들면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "만드는 동안 몇 번이고 화면을 보시면서 고칠 수 있습니다. 문구, 사진, 색, 순서 모두 말씀하시는 대로 바꿔 드립니다."}}]}</script>
 </head>
 <body>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top"><span>W</span>웹 스튜디오</a>
     <ul>
+      <li><a href="#start">처음이세요?</a></li>
       <li><a href="#work">작업 사례</a></li>
       <li><a href="#features">제공 기능</a></li>
       <li><a href="#process">진행 과정</a></li>
       <li><a href="#pricing">제작 비용</a></li>
-      <li><a href="#guides">제작 안내</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
     </ul>
     <a class="btn" href="#contact">제작 문의</a>
   </div>
@@ -254,7 +276,7 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
           </div>
           <div class="slide">
             <h1>네이버에서<br><em>찾아지는</em><br>홈페이지까지.</h1>
-            <p>지역명과 메뉴, 시공 종류로 검색하는 손님이 사장님 사이트에 닿도록 안내 페이지와 검색 설정을 함께 해 드립니다.</p>
+            <p>손님이 "○○동 집수리", "속초 맛집"처럼 검색했을 때 사장님 사이트가 나오도록 검색용 소개 글을 쓰고 네이버·구글에 등록까지 해 드립니다.</p>
           </div>
         </div>
         <div class="cta">
@@ -267,6 +289,54 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
         <div class="m"><div class="mock"><div class="chrome"><i></i><i></i><i></i><span>rocketzipsuri.pages.dev</span></div><div class="shot shot-rkt" role="img" aria-label="rocketzipsuri.pages.dev 첫 화면"></div></div></div>
         <div class="m"><div class="mock"><div class="chrome"><i></i><i></i><i></i><span>parkeunsook-insurance.netlify.app</span></div><div class="shot shot-ins" role="img" aria-label="parkeunsook-insurance.netlify.app 첫 화면"></div></div></div>
         <div class="m"><div class="mock"><div class="chrome"><i></i><i></i><i></i><span>daepohang-fish.pages.dev</span></div><div class="shot shot-fish" role="img" aria-label="daepohang-fish.pages.dev 첫 화면"></div></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="block" id="start">
+      <div class="head">
+        <div>
+          <span class="tag">홈페이지가 처음이세요?</span>
+          <h2>어렵게 생각하지 않으셔도 됩니다</h2>
+          <p>홈페이지는 인터넷에 올려 두는 가게 안내판입니다. 손님이 휴대폰으로 주소를 누르면 가게 소개, 사진, 가격, 연락처가 한 번에 보입니다.</p>
+        </div>
+      </div>
+      <div class="basics">
+        <div class="basic">
+          <span class="q">무엇이 좋아지나요?</span>
+          <h3>손님이 먼저 알아보고 연락합니다</h3>
+          <ul>
+            <li>네이버에서 가게 이름이나 "○○동 집수리"를 검색하면 나옵니다</li>
+            <li>손님이 화면의 버튼을 누르면 바로 전화나 문자가 옵니다</li>
+            <li>명함, 블로그, 문자에 주소 하나만 넣으면 됩니다</li>
+          </ul>
+        </div>
+        <div class="basic">
+          <span class="q">제가 준비할 건요?</span>
+          <h3>컴퓨터를 몰라도 됩니다</h3>
+          <ul>
+            <li>가게 사진 몇 장 (휴대폰으로 찍은 것도 충분)</li>
+            <li>전화번호, 영업시간, 가게 위치</li>
+            <li>무엇을 하는 가게인지 몇 줄</li>
+          </ul>
+          <p>블로그나 인스타그램이 있으면 주소만 알려 주세요. 거기서 사진과 내용을 모아 옵니다.</p>
+        </div>
+        <div class="basic">
+          <span class="q">만든 다음에는요?</span>
+          <h3>고칠 게 생기면 문자 한 통</h3>
+          <p>"전화번호 바꿔 주세요", "이 사진 추가해 주세요"처럼 말씀만 하시면 제가 고쳐 드립니다. 사장님이 따로 배우실 것은 없습니다.</p>
+          <p>사이트를 올려 두는 데 매달 드는 돈도 없습니다.</p>
+        </div>
+      </div>
+      <div class="words">
+        <h3>상담 때 들을 수 있는 말, 미리 풀어 드립니다</h3>
+        <dl>
+          <dt>도메인</dt><dd>홈페이지의 인터넷 주소입니다. 예: majorjipsuri.com. 처음엔 무료 주소로 시작하고, 원하시면 가게 이름 주소를 사서 붙입니다.</dd>
+          <dt>검색 등록</dt><dd>네이버와 구글에 "이런 가게 사이트가 생겼어요" 하고 알려 주는 일입니다. 해 두어야 검색에 나옵니다.</dd>
+          <dt>검색용 소개 글</dt><dd>"속초 맛집", "욕실 수리"처럼 손님이 실제로 검색하는 말마다 따로 써 두는 소개 페이지입니다. 많을수록 검색에서 발견될 기회가 늘어납니다.</dd>
+          <dt>휴대폰 맞춤 화면</dt><dd>휴대폰, 태블릿, 컴퓨터 어디서 열어도 글씨와 버튼이 알맞은 크기로 보이게 만드는 것입니다.</dd>
+        </dl>
       </div>
     </section>
   </div>
@@ -294,7 +364,7 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
             <span class="kind">시공·출장 · 집수리 업체</span>
             <h3>메이저 집수리닷컴 <span>사이트 보기 ↗</span></h3>
             <p>시공 전후 사진 슬라이드, 불편한 자리별 시공 사례 찾기, 지역별 출장 안내까지 담은 집수리 업체 사이트입니다.</p>
-            <div class="chips"><span>전후 비교 사진</span><span>사진 견적 문의</span><span>시공 사례 게시판</span><span>자체 도메인</span></div>
+            <div class="chips"><span>전후 비교 사진</span><span>사진 견적 문의</span><span>시공 사례 게시판</span><span>가게 이름 주소(.com)</span></div>
           </div>
         </a>
         <a class="work" data-k="repair" href="https://rocketzipsuri.pages.dev/" target="_blank" rel="noopener">
@@ -303,7 +373,7 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
             <span class="kind">시공·출장 · 집수리 업체</span>
             <h3>로켓집수리닷컴 <span>사이트 보기 ↗</span></h3>
             <p>네이버 블로그 작업일지 889편을 출동 현황판과 검색 화면으로 보여 주는 집수리 사이트입니다. 문의 문자 내용을 대신 만들어 주는 기능도 넣었습니다.</p>
-            <div class="chips"><span>블로그 기록 연동</span><span>문자 내용 만들기</span><span>출장 지역 지도</span><span>후기</span></div>
+            <div class="chips"><span>블로그 글 모아 보기</span><span>문자 내용 만들기</span><span>출장 지역 지도</span><span>후기</span></div>
           </div>
         </a>
         <a class="work" data-k="consult" href="https://parkeunsook-insurance.netlify.app/" target="_blank" rel="noopener">
@@ -320,8 +390,8 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
           <div class="info">
             <span class="kind">음식점 · 속초 생선찜</span>
             <h3>대포항생선찜본점 <span>사이트 보기 ↗</span></h3>
-            <p>차림표, 매장 이야기, 오시는 길을 감성 있게 담고, "속초 맛집" 같은 검색어로 들어오는 안내 페이지를 함께 만든 식당 사이트입니다.</p>
-            <div class="chips"><span>차림표</span><span>지도·길찾기</span><span>검색용 안내 페이지</span><span>포장 안내</span></div>
+            <p>차림표, 매장 이야기, 오시는 길을 감성 있게 담고, "속초 맛집" 같은 검색어로 손님이 들어오도록 검색용 소개 글을 함께 만든 식당 사이트입니다.</p>
+            <div class="chips"><span>차림표</span><span>지도·길찾기</span><span>검색용 소개 글</span><span>포장 안내</span></div>
           </div>
         </a>
       </div>
@@ -343,7 +413,7 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
         <div class="feat"><h3>셀프 점검 계산기</h3><p>손님이 몇 가지를 고르면 결과를 바로 보여 주고, 그 결과로 상담을 신청하게 이어 줍니다.</p><span class="from">박은숙 보험상담</span></div>
         <div class="feat"><h3>시공 전후 비교</h3><p>작업 전과 후 사진을 나란히 보여 주고, 사례마다 "이 작업 상담하기" 버튼을 붙입니다.</p><span class="from">메이저 집수리닷컴</span></div>
         <div class="feat"><h3>블로그 기록 활용</h3><p>이미 쌓아 둔 네이버 블로그 글을 사이트에서 검색하고 둘러볼 수 있게 정리합니다.</p><span class="from">로켓집수리닷컴</span></div>
-        <div class="feat"><h3>검색 노출 페이지</h3><p>"속초 맛집", "가오리찜"처럼 손님이 실제로 검색하는 말로 안내 페이지를 만들어 네이버·구글에 등록합니다.</p><span class="from">대포항생선찜본점</span></div>
+        <div class="feat"><h3>검색용 소개 글</h3><p>"속초 맛집", "가오리찜"처럼 손님이 실제로 검색하는 말마다 소개 페이지를 만들어 네이버·구글에 알립니다.</p><span class="from">대포항생선찜본점</span></div>
       </div>
     </section>
   </div>
@@ -354,14 +424,14 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
         <div>
           <span class="tag">진행 과정</span>
           <h2>처음 연락부터 오픈까지</h2>
-          <p>단계마다 화면을 먼저 보여 드리고, 확인받은 뒤에 다음 단계로 넘어갑니다.</p>
+          <p>사장님은 전화 한 통과 사진 몇 장이면 됩니다. 나머지는 단계마다 화면을 보여 드리며 진행합니다.</p>
         </div>
       </div>
       <ol class="flow">
-        <li><h3>상담</h3><p>업종, 손님, 지금 쓰는 블로그나 SNS를 듣고 꼭 필요한 기능을 정합니다.</p></li>
-        <li><h3>자료 정리</h3><p>사진, 메뉴, 시공 사례를 받아 손님이 읽기 쉬운 문구로 다듬습니다.</p></li>
-        <li><h3>디자인·제작</h3><p>휴대폰 화면부터 만들고, 실제 링크로 보면서 함께 고칩니다.</p></li>
-        <li><h3>오픈·등록</h3><p>도메인 연결, 네이버·구글 검색 등록, 수정 방법 안내까지 마무리합니다.</p></li>
+        <li><h3>상담</h3><p>전화나 문자로 어떤 가게인지 들려주세요. 꼭 필요한 것만 골라 비용과 함께 안내해 드립니다.</p></li>
+        <li><h3>자료 보내기</h3><p>사진과 메뉴, 작업 사례를 문자나 카카오톡으로 보내 주시면 손님이 읽기 쉬운 문구로 다듬습니다.</p></li>
+        <li><h3>화면 보고 고치기</h3><p>만든 화면을 링크로 보내 드립니다. 휴대폰으로 눌러 보시고 바꾸고 싶은 곳을 말씀해 주세요.</p></li>
+        <li><h3>오픈</h3><p>주소를 정하고 네이버·구글에 등록합니다. 이후 고칠 것은 문자 한 통이면 됩니다.</p></li>
       </ol>
     </div>
   </section>
@@ -372,7 +442,7 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
         <div>
           <span class="tag">제작 비용</span>
           <h2>필요한 만큼만 고르세요</h2>
-          <p>세 가지 모두 휴대폰 맞춤 화면, 전화·문자 버튼, 네이버·구글 검색 등록이 기본으로 들어갑니다.</p>
+          <p>세 가지 모두 휴대폰에서 보기 좋은 화면, 누르면 걸리는 전화·문자 버튼, 네이버·구글 등록이 기본으로 들어갑니다.</p>
         </div>
       </div>
       <div class="plans">
@@ -381,9 +451,9 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
           <p class="pfor">명함 대신 쓸 사이트가 필요한 분</p>
           <div class="price">29<span>만원</span></div>
           <ul>
-            <li>한 페이지 소개 사이트</li>
+            <li>가게 소개를 한 화면에 모두 담은 사이트</li>
             <li>전화·문자·길찾기 버튼</li>
-            <li>네이버·구글 검색 등록</li>
+            <li>네이버·구글에 사이트 등록</li>
             <li>오픈 후 1개월 무료 수정</li>
           </ul>
           <a class="btn line" href="#contact" data-plan="한 장 소개 (29만원)">이걸로 상담하기</a>
@@ -393,10 +463,10 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
           <p class="pfor">사례와 메뉴를 제대로 보여 주고 싶은 가게</p>
           <div class="price">59<span>만원</span></div>
           <ul>
-            <li>메인 + 상세 페이지 5개까지</li>
+            <li>첫 화면 + 메뉴별 화면 5개까지 (소개, 사례, 가격, 오시는 길 등)</li>
             <li>시공 사례·차림표·후기 정리</li>
-            <li>문의 문자 자동 작성</li>
-            <li>검색용 안내 페이지 5개</li>
+            <li>손님이 고른 내용으로 문의 문자가 자동 작성</li>
+            <li>검색용 소개 글 5개 (예: "○○동 집수리")</li>
             <li>오픈 후 2개월 무료 수정</li>
           </ul>
           <a class="btn" href="#contact" data-plan="기본 홈페이지 (59만원)">이걸로 상담하기</a>
@@ -407,19 +477,19 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
           <div class="price">89<span>만원</span></div>
           <ul>
             <li>기본 홈페이지 전부 포함</li>
-            <li>검색용 안내 페이지 20개</li>
-            <li>맞춤 기능 1개 (사진 견적, 셀프 점검 계산기, 블로그 연동 등)</li>
-            <li>상호 도메인 연결 대행</li>
+            <li>검색용 소개 글 20개</li>
+            <li>가게에 맞는 특별 기능 1개 (사진 보내고 견적 받기, 보험 셀프 점검표, 블로그 글 모아 보기 등)</li>
+            <li>가게 이름 주소 연결 (예: 우리가게.com)</li>
             <li>오픈 후 3개월 무료 수정</li>
           </ul>
           <a class="btn line" href="#contact" data-plan="검색 노출형 (89만원)">이걸로 상담하기</a>
         </div>
       </div>
       <div class="extras">
-        <div><span>검색용 안내 페이지 추가 (10개)</span><b>10만원</b></div>
-        <div><span>무료 기간 뒤 수정 관리</span><b>월 3만원</b></div>
-        <div><span>서버 사용료</span><b>없음</b></div>
-        <div><span>상호 도메인 (선택)</span><b>실비</b></div>
+        <div><span>검색용 소개 글 10개 추가</span><b>10만원</b></div>
+        <div><span>무료 수정 기간 뒤 계속 고쳐 드리기</span><b>월 3만원</b></div>
+        <div><span>사이트를 올려 두는 비용</span><b>매달 0원</b></div>
+        <div><span>가게 이름 주소 (원할 때만)</span><b>1년 2만원 안팎</b></div>
       </div>
       <p class="price-note"><b>부가세 없이 표시된 금액 그대로입니다.</b> 개인으로 작업하고 있어 세금계산서는 발행되지 않습니다. 정확한 범위는 상담에서 함께 정합니다. 상담과 견적은 무료입니다.</p>
     </section>
@@ -458,6 +528,25 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
           <li><a href="/homepage-maintenance/">홈페이지 수정 유지보수</a></li>
           <!--/guides-->
       </ul>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <section class="block" id="faq">
+      <div class="head">
+        <div>
+          <span class="tag">자주 묻는 질문</span>
+          <h2>처음 문의하시는 분들이 많이 물어보세요</h2>
+        </div>
+      </div>
+      <div class="qa">
+        <details><summary>컴퓨터를 잘 못 다루는데 괜찮을까요?</summary><p>괜찮습니다. 사진과 설명을 문자나 카카오톡으로 보내 주시면 정리와 제작은 모두 제가 합니다. 완성되면 휴대폰으로 링크를 보내 드리니 눌러서 확인만 하시면 됩니다.</p></details>
+        <details><summary>만든 뒤에 매달 돈이 드나요?</summary><p>사이트를 올려 두는 비용은 없습니다. 가게 이름 주소(예: 우리가게.com)를 쓰실 때만 그 주소 사용료가 1년에 2만원 안팎 듭니다. 무료 수정 기간이 끝난 뒤 수정을 계속 맡기시면 월 3만원입니다.</p></details>
+        <details><summary>만들면 바로 네이버에 나오나요?</summary><p>등록은 오픈하는 날 바로 해 드리지만, 네이버가 사이트를 읽고 검색 결과에 보여 주기까지 보통 몇 주가 걸립니다. 그동안 블로그, 플레이스, 명함에 주소를 걸어 두시면 손님이 바로 들어올 수 있습니다.</p></details>
+        <details><summary>네이버 플레이스나 블로그가 있는데 또 필요할까요?</summary><p>플레이스와 블로그는 그대로 쓰시면 됩니다. 홈페이지는 그 둘을 한곳에 모아 가게를 제대로 소개하고, 바로 연락하게 만드는 역할을 합니다. 서로 주소를 걸어 두면 손님이 오가며 더 잘 찾습니다.</p></details>
+        <details><summary>얼마나 걸리나요?</summary><p>사진과 내용이 준비돼 있으면 한 장 소개는 며칠, 기본 홈페이지는 1~2주 정도 봅니다. 중간중간 휴대폰으로 화면을 보내 드리고 함께 고칩니다.</p></details>
+        <details><summary>마음에 안 들면 어떻게 하나요?</summary><p>만드는 동안 몇 번이고 화면을 보시면서 고칠 수 있습니다. 문구, 사진, 색, 순서 모두 말씀하시는 대로 바꿔 드립니다.</p></details>
+      </div>
     </section>
   </div>
 
