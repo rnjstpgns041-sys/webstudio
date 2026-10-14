@@ -138,6 +138,25 @@ section.alt .chips span { background: var(--bg); }
 .feat p { color: var(--muted); font-size: 15px; }
 .feat .from { font-size: 13px; color: var(--accent); font-weight: 500; }
 
+/* 가격 */
+.plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+.plan { border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; background: var(--bg); }
+.plan.pick { border: 2px solid var(--accent); }
+.plan .pname { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 800; font-size: 18px; }
+.plan .pname small { font-size: 12px; font-weight: 700; color: var(--on-accent); background: var(--accent); padding: 3px 9px; border-radius: 99px; }
+.plan .pfor { color: var(--muted); font-size: 14px; }
+.plan .price { font-size: 34px; font-weight: 800; letter-spacing: -.03em; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.plan .price span { font-size: 16px; font-weight: 700; margin-left: 2px; }
+.plan ul { flex: 1; list-style: none; margin: 0; padding: 14px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; font-size: 15px; }
+.plan li { padding-left: 22px; position: relative; }
+.plan li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.plan .btn { margin-top: 6px; }
+.extras { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 28px; border-top: 1px solid var(--line); }
+.extras div { display: flex; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.extras b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.price-note { margin-top: 16px; color: var(--muted); font-size: 14px; }
+@media (max-width: 960px) { .plans { grid-template-columns: 1fr; max-width: 520px; } }
+
 /* 진행 과정 */
 .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; list-style: none; margin: 0; padding: 0; counter-reset: f; }
 .flow li { counter-increment: f; background: var(--bg); border-radius: 16px; padding: 28px 24px; min-width: 0; display: grid; gap: 10px; align-content: start; }
@@ -208,6 +227,7 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
       <li><a href="#work">작업 사례</a></li>
       <li><a href="#features">제공 기능</a></li>
       <li><a href="#process">진행 과정</a></li>
+      <li><a href="#pricing">제작 비용</a></li>
       <li><a href="#guides">제작 안내</a></li>
     </ul>
     <a class="btn" href="#contact">제작 문의</a>
@@ -347,6 +367,65 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
   </section>
 
   <div class="wrap">
+    <section class="block" id="pricing">
+      <div class="head">
+        <div>
+          <span class="tag">제작 비용</span>
+          <h2>필요한 만큼만 고르세요</h2>
+          <p>세 가지 모두 휴대폰 맞춤 화면, 전화·문자 버튼, 네이버·구글 검색 등록이 기본으로 들어갑니다.</p>
+        </div>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <div class="pname">한 장 소개</div>
+          <p class="pfor">명함 대신 쓸 사이트가 필요한 분</p>
+          <div class="price">29<span>만원</span></div>
+          <ul>
+            <li>한 페이지 소개 사이트</li>
+            <li>전화·문자·길찾기 버튼</li>
+            <li>네이버·구글 검색 등록</li>
+            <li>오픈 후 1개월 무료 수정</li>
+          </ul>
+          <a class="btn line" href="#contact" data-plan="한 장 소개 (29만원)">이걸로 상담하기</a>
+        </div>
+        <div class="plan pick">
+          <div class="pname">기본 홈페이지 <small>가장 많이 선택</small></div>
+          <p class="pfor">사례와 메뉴를 제대로 보여 주고 싶은 가게</p>
+          <div class="price">59<span>만원</span></div>
+          <ul>
+            <li>메인 + 상세 페이지 5개까지</li>
+            <li>시공 사례·차림표·후기 정리</li>
+            <li>문의 문자 자동 작성</li>
+            <li>검색용 안내 페이지 5개</li>
+            <li>오픈 후 2개월 무료 수정</li>
+          </ul>
+          <a class="btn" href="#contact" data-plan="기본 홈페이지 (59만원)">이걸로 상담하기</a>
+        </div>
+        <div class="plan">
+          <div class="pname">검색 노출형</div>
+          <p class="pfor">검색으로 새 손님을 꾸준히 받고 싶은 분</p>
+          <div class="price">89<span>만원</span></div>
+          <ul>
+            <li>기본 홈페이지 전부 포함</li>
+            <li>검색용 안내 페이지 20개</li>
+            <li>맞춤 기능 1개 (사진 견적, 셀프 점검 계산기, 블로그 연동 등)</li>
+            <li>상호 도메인 연결 대행</li>
+            <li>오픈 후 3개월 무료 수정</li>
+          </ul>
+          <a class="btn line" href="#contact" data-plan="검색 노출형 (89만원)">이걸로 상담하기</a>
+        </div>
+      </div>
+      <div class="extras">
+        <div><span>검색용 안내 페이지 추가 (10개)</span><b>10만원</b></div>
+        <div><span>무료 기간 뒤 수정 관리</span><b>월 3만원</b></div>
+        <div><span>서버 사용료</span><b>없음</b></div>
+        <div><span>상호 도메인 (선택)</span><b>실비</b></div>
+      </div>
+      <p class="price-note">정확한 범위는 상담에서 함께 정합니다. 상담과 견적은 무료입니다.</p>
+    </section>
+  </div>
+
+  <div class="wrap">
     <section class="block guides" id="guides">
       <div class="head">
         <div>
@@ -468,6 +547,12 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
       var done = function () { b.textContent = '복사됨'; setTimeout(function () { b.textContent = '복사'; }, 1500); };
       var fallback = function () { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); };
       try { navigator.clipboard.writeText(el.textContent).then(done, fallback); } catch (e) { fallback(); }
+    });
+  });
+  document.querySelectorAll('[data-plan]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var m = document.getElementById('f-msg');
+      if (m.value.indexOf(a.dataset.plan) === -1) m.value = '희망 상품: ' + a.dataset.plan + (m.value ? '\n' + m.value : '');
     });
   });
   var form = document.getElementById('contact-form');
