@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://webstudio-4e9.pages.dev/sitemap.xml
