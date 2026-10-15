@@ -397,3 +397,6 @@ PAGES = [
         ("수정 요청은 어떻게 보내나요?", "전화, 문자, 이메일 편하신 방법으로 보내 주세요.")],
 },
 ]
+
+from pages_data2 import PAGES2
+PAGES += PAGES2

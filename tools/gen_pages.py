@@ -10,7 +10,7 @@ SITE = "웹 스튜디오"
 PHONE = "010-3406-4060"
 TEL = "01034064060"
 EMAIL = "rnjstpgns0411@naver.com"
-LASTMOD = "2026-10-14"
+LASTMOD = "2026-10-15"
 NAVER_TAG = '<meta name="naver-site-verification" content="143886b928e8811ee874b6e0498388b83ea62daa">'
 ICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232350F0'/%3E"
         "%3Ctext x='16' y='22' font-size='16' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'%3EW%3C/text%3E%3C/svg%3E")
