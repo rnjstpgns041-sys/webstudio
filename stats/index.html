@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>홈페이지 통계 | 웹 스튜디오</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232350F0'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'%3EW%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#F3F5F8;--surface:#FFFFFF;--ink:#0C1424;--muted:#5B6578;--line:#E1E5EC;--chili:#C2410C;--sea:#2350F0;--bar:#2350F0;
+  --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B0F17;--surface:#141A25;--ink:#EEF2F8;--muted:#9AA4B6;--line:#252D3B;--chili:#FB923C;--sea:#6E8BFF;--bar:#6E8BFF;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B0F17;--surface:#141A25;--ink:#EEF2F8;--muted:#9AA4B6;--line:#252D3B;--chili:#FB923C;--sea:#6E8BFF;--bar:#6E8BFF;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;word-break:keep-all}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 60px;display:flex;flex-direction:column;gap:22px}
+h1{font-size:1.5rem;margin:0}
+h2{font-size:1.1rem;margin:0 0 8px}
+.sub{color:var(--muted);margin:2px 0 0;font-size:.9rem}
+.card{background:var(--surface);border:1px solid var(--line);padding:16px;border-radius:14px}
+form{display:flex;gap:8px;flex-wrap:wrap}
+input{font:inherit;padding:10px 12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0;flex:1 1 200px}
+button{font:inherit;font-weight:700;padding:10px 16px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer}
+button.ghost{background:transparent;color:var(--ink);border-color:var(--line);font-weight:500}
+button[aria-pressed="true"]{background:var(--sea);border-color:var(--sea);color:#fff}
+button:focus-visible,input:focus-visible{outline:3px solid var(--chili);outline-offset:2px}
+.range{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.range .sp{flex:1}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:640px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tile{background:var(--surface);border:1px solid var(--line);padding:14px;border-radius:14px}
+.tile .k{color:var(--muted);font-size:.85rem}
+.tile .v{font-size:1.9rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+.tile .h{color:var(--muted);font-size:.78rem}
+.chart{position:relative;height:180px;display:flex;align-items:flex-end;gap:2px;border-bottom:1px solid var(--line);padding-top:8px}
+.chart .b{flex:1;min-width:2px;display:flex;align-items:flex-end;height:100%;cursor:default}
+.chart .b i{display:block;width:100%;background:var(--bar);border-radius:4px 4px 0 0;min-height:1px}
+.chart .b:hover i,.chart .b:focus i{background:var(--chili)}
+.axis{display:flex;justify-content:space-between;color:var(--muted);font-size:.78rem;padding-top:4px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);padding:6px 10px;font-size:.82rem;white-space:nowrap;transform:translate(-50%,-110%);display:none;z-index:2}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal;min-width:150px}
+th{color:var(--muted);font-weight:500;font-size:.85rem}
+td small{display:block;color:var(--muted);font-size:.75rem}
+.empty{color:var(--muted);padding:10px 0}
+.note{color:var(--muted);font-size:.85rem}
+.note li{margin:4px 0}
+.err{color:var(--chili);font-weight:700}
+.tabs{display:flex;gap:6px}
+.tabs a{font-weight:700;font-size:.9rem;padding:8px 14px;border:1px solid var(--line);color:var(--muted);text-decoration:none}
+.tabs a.on{background:var(--sea);border-color:var(--sea);color:#fff}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>홈페이지 통계</h1>
+    <p class="sub">웹 스튜디오 · webstudio-4e9.pages.dev · 운영자만 보는 페이지</p>
+  </header>
+
+  <section class="card" id="login">
+    <h2>비밀번호</h2>
+    <form id="f"><input id="key" type="password" autocomplete="current-password" placeholder="클라우드플레어에 넣은 STATS_KEY" required><button type="submit">보기</button></form>
+    <p class="err" id="loginErr" hidden></p>
+    <p class="note">한 번 들어오면 이 기기에서는 다시 묻지 않아요. 이 기기에서 홈페이지를 보는 것도 통계에서 빠져요.</p>
+  </section>
+
+  <div id="main" hidden>
+    <div class="range" role="group" aria-label="기간">
+      <button type="button" class="ghost" data-d="1">오늘</button>
+      <button type="button" class="ghost" data-d="7">7일</button>
+      <button type="button" class="ghost" data-d="30">30일</button>
+      <button type="button" class="ghost" data-d="3650">전체</button>
+      <span class="sp"></span>
+      <button type="button" class="ghost" id="out">이 기기에서 잠그기</button>
+    </div>
+
+    <div class="tiles" style="margin-top:14px">
+      <div class="tile"><div class="k">방문</div><div class="v" id="tv">-</div><div class="h">페이지 열람 수</div></div>
+      <div class="tile"><div class="k">전화 버튼</div><div class="v" id="tc">-</div><div class="h">전화를 누른 수</div></div>
+      <div class="tile"><div class="k">문자·메일 문의</div><div class="v" id="ts">-</div><div class="h">문자·메일 버튼, 문의 양식</div></div>
+      <div class="tile"><div class="k">문의 전환율</div><div class="v" id="tr">-</div><div class="h">방문 100번 중 연락 시도</div></div>
+    </div>
+
+    <section class="card" style="margin-top:14px">
+      <h2>날짜별 방문</h2>
+      <div class="chart" id="chart" aria-label="날짜별 방문 막대 그래프"><div class="tip" id="tip"></div></div>
+      <div class="axis"><span id="ax0"></span><span id="ax1"></span></div>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>안내 페이지별 성과</h2>
+      <p class="note" style="margin-top:0">손님이 검색해서 처음 들어온 페이지 기준이에요. 그 손님이 메인으로 옮겨 가서 문의해도 처음 페이지의 문의로 셉니다.</p>
+      <div class="tbl"><table><thead><tr><th>처음 들어온 페이지</th><th>방문</th><th>전화</th><th>문자·메일</th><th>상품 선택</th><th>전환율</th></tr></thead><tbody id="pages"></tbody></table></div>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>어디서 왔나요</h2>
+      <div class="tbl"><table><thead><tr><th>유입 경로</th><th>방문</th><th>전화</th><th>문자·메일</th><th>상품 선택</th><th>전환율</th></tr></thead><tbody id="srcs"></tbody></table></div>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>잡힌 검색어</h2>
+      <div class="tbl"><table><thead><tr><th>검색어</th><th>검색 사이트</th><th>방문</th></tr></thead><tbody id="qs"></tbody></table></div>
+      <p class="note">네이버와 구글은 대부분 검색어를 홈페이지에 넘겨 주지 않아서 여기엔 일부만 잡혀요. 정확한 검색어별 클릭 수는 네이버 서치어드바이저의 <b>콘텐츠 노출/클릭</b>, 구글 서치 콘솔의 <b>실적</b>에서 보세요. 위의 "안내 페이지별 성과"가 검색어를 대신 보여 줘요.</p>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>가격표에서 고른 상품</h2>
+      <div class="tbl"><table><thead><tr><th>상품</th><th>누른 수</th></tr></thead><tbody id="plans"></tbody></table></div>
+      <p class="note">가격표의 "이걸로 상담하기"를 누른 수예요.</p>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>열어 본 작업 사례</h2>
+      <div class="tbl"><table><thead><tr><th>사이트</th><th>누른 수</th></tr></thead><tbody id="cases"></tbody></table></div>
+    </section>
+
+    <section class="card" style="margin-top:14px">
+      <h2>기기</h2>
+      <div class="tbl"><table><thead><tr><th>기기</th><th>방문</th><th>전화</th><th>문자·메일</th><th>상품 선택</th><th>전환율</th></tr></thead><tbody id="devs"></tbody></table></div>
+    </section>
+
+    <ul class="note">
+      <li>전화·문자·메일 버튼은 "눌렀다"까지만 알 수 있어요. 실제로 연락이 왔는지는 알 수 없어요.</li>
+      <li>전화번호·이메일 "복사"를 누른 수는 전화 쪽 괄호 안에 함께 보여요.</li>
+      <li>검색 로봇의 방문은 빼고 셉니다. 쿠키나 개인정보는 저장하지 않아요.</li>
+      <li>기록은 이 통계 기능을 켠 날부터 쌓여요.</li>
+    </ul>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY="ws-stats-key", names={}, days=30, data=null;
+  function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}}
+  fetch("/stats/pages.json").then(function(r){return r.json()}).then(function(j){names=j;if(data)render()}).catch(function(){});
+  var $=function(id){return document.getElementById(id)};
+  function n(x){return (x||0).toLocaleString("ko-KR")}
+  function rate(c,v){return v?(Math.round(c/v*1000)/10)+"%":"-"}
+  function label(p){if(!p)return "알 수 없음";var t=names[p];return t?t+"<small>"+p+"</small>":p}
+  function rows(list,first){
+    if(!list||!list.length)return '<tr><td class="empty" colspan="6">아직 기록이 없어요</td></tr>';
+    return list.map(function(r){var c=r.c||0,cp=r.cp||0,s=r.s||0;return "<tr><td>"+first(r)+"</td><td>"+n(r.v)+"</td><td>"+n(c)+(cp?" ("+n(cp)+")":"")+"</td><td>"+n(s)+"</td><td>"+n(r.pl)+"</td><td>"+rate(c+s,r.v)+"</td></tr>"}).join("");
+  }
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  function render(){
+    var t=data.total||{};$("tv").textContent=n(t.v);$("tc").textContent=n(t.c);$("ts").textContent=n(t.s);$("tr").textContent=rate((t.c||0)+(t.s||0),t.v);
+    // fill every day in range so gaps show as zero
+    var map={};(data.daily||[]).forEach(function(d){map[d.day]=d});
+    var list=[],start=new Date(data.from+"T00:00:00Z"),cnt=Math.min(data.days,Math.max(1,Math.round((Date.now()+9*36e5-start)/864e5)+1));
+    if(data.days>=3650&&data.daily&&data.daily.length){start=new Date(data.daily[0].day+"T00:00:00Z");cnt=Math.round((Date.now()+9*36e5-start)/864e5)+1}
+    for(var i=0;i<cnt;i++){var d=new Date(start.getTime()+i*864e5).toISOString().slice(0,10);list.push(map[d]||{day:d,v:0,c:0,s:0})}
+    var max=Math.max.apply(null,list.map(function(d){return d.v||0}).concat([1]));
+    var ch=$("chart"),tip=$("tip");ch.querySelectorAll(".b").forEach(function(b){b.remove()});
+    list.forEach(function(d){var b=document.createElement("div");b.className="b";b.tabIndex=0;
+      b.innerHTML='<i style="height:'+((d.v||0)/max*100)+'%"></i>';
+      var txt=d.day.slice(5).replace("-","/")+" · 방문 "+n(d.v)+" · 전화 "+n(d.c)+" · 문자·메일 "+n(d.s);
+      b.setAttribute("aria-label",txt);
+      function show(){tip.textContent=txt;tip.style.display="block";var r=b.getBoundingClientRect(),p=ch.getBoundingClientRect();
+        var x=Math.min(Math.max(r.left-p.left+r.width/2,70),p.width-70);tip.style.left=x+"px";tip.style.top=(r.bottom-p.top-b.firstChild.offsetHeight)+"px"}
+      b.addEventListener("mouseenter",show);b.addEventListener("focus",show);
+      b.addEventListener("mouseleave",function(){tip.style.display="none"});b.addEventListener("blur",function(){tip.style.display="none"});
+      ch.appendChild(b)});
+    $("ax0").textContent=list.length?list[0].day.slice(5).replace("-","/"):"";$("ax1").textContent=list.length?list[list.length-1].day.slice(5).replace("-","/"):"";
+    $("pages").innerHTML=rows(data.pages,function(r){return label(r.landing)});
+    $("srcs").innerHTML=rows(data.sources,function(r){return esc(r.src||"알 수 없음")});
+    function tally(list,empty){return (list&&list.length)?list.map(function(r){return "<tr><td>"+esc(r.q||"알 수 없음")+"</td><td>"+n(r.n)+"</td></tr>"}).join(""):'<tr><td class="empty" colspan="2">'+empty+"</td></tr>"}
+    $("plans").innerHTML=tally(data.plans,"아직 누른 상품이 없어요");
+    $("cases").innerHTML=tally(data.cases,"아직 열어 본 사례가 없어요");
+    $("devs").innerHTML=rows(data.devices,function(r){return esc(r.dev||"알 수 없음")});
+    $("qs").innerHTML=(data.queries&&data.queries.length)?data.queries.map(function(r){return "<tr><td>"+esc(r.q)+"</td><td>"+esc(r.src)+"</td><td>"+n(r.v)+"</td></tr>"}).join(""):'<tr><td class="empty" colspan="3">아직 잡힌 검색어가 없어요</td></tr>';
+  }
+  function load(){
+    var k=ls(KEY);if(!k)return;
+    document.querySelectorAll("[data-d]").forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.d===days))});
+    fetch("/api/stats?days="+days,{headers:{"x-stats-key":k}}).then(function(r){return r.json().then(function(j){return {s:r.status,j:j}})}).then(function(x){
+      if(x.s===401){ls(KEY,null);$("main").hidden=true;$("login").hidden=false;$("loginErr").hidden=false;$("loginErr").textContent="비밀번호가 맞지 않아요.";return}
+      if(x.s===503){$("login").hidden=false;$("main").hidden=true;$("loginErr").hidden=false;$("loginErr").textContent="통계 저장소가 아직 연결되지 않았어요. 클라우드플레어 설정을 마쳐 주세요.";return}
+      $("login").hidden=true;$("main").hidden=false;data=x.j;render();
+    }).catch(function(){$("loginErr").hidden=false;$("loginErr").textContent="불러오지 못했어요. 잠시 뒤 다시 열어 주세요."});
+  }
+  $("f").addEventListener("submit",function(e){e.preventDefault();ls(KEY,$("key").value.trim());ls("ws-owner","1");$("loginErr").hidden=true;load()});
+  document.querySelectorAll("[data-d]").forEach(function(b){b.addEventListener("click",function(){days=+b.dataset.d;load()})});
+  $("out").addEventListener("click",function(){ls(KEY,null);location.reload()});
+  if(ls(KEY))load();
+})();
+</script>
+</body>
+</html>

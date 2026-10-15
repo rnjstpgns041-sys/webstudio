@@ -662,7 +662,7 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
     });
   });
 
-  document.querySelectorAll('.copy').forEach(function (b) {
+  document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
       var el = document.getElementById(b.dataset.copy);
       var done = function () { b.textContent = '복사됨'; setTimeout(function () { b.textContent = '복사'; }, 1500); };
@@ -683,15 +683,18 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (window.wsTrack) window.wsTrack('form');
     location.href = 'sms:01034064060' + (/iPhone|iPad|iPod/.test(navigator.userAgent) ? '&' : '?') + 'body=' + encodeURIComponent(body());
     document.getElementById('form-msg').hidden = false;
   });
   document.getElementById('send-mail').addEventListener('click', function () {
     if (!form.reportValidity()) return;
+    if (window.wsTrack) window.wsTrack('mail');
     location.href = 'mailto:rnjstpgns0411@naver.com?subject=' + encodeURIComponent('홈페이지 제작 문의') + '&body=' + encodeURIComponent(body());
   });
 })();
 </script>
 
+<script src="/js/track.js" defer></script>
 </body>
 </html>

@@ -122,6 +122,7 @@ def page(p):
   </nav>
 </main>
 <footer class="wrap foot"><a href="/">{SITE}</a> · 소상공인·1인 사업자 홈페이지 제작 · <a href="tel:{TEL}">{PHONE}</a></footer>
+<script src="/js/track.js" defer></script>
 </body>
 </html>
 """
@@ -138,6 +139,12 @@ def main():
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         f.writelines(f"  <url><loc>{u}</loc><lastmod>{LASTMOD}</lastmod></url>\n" for u in urls)
         f.write("</urlset>\n")
+    # 통계 화면에서 주소 대신 페이지 이름을 보여 주는 표
+    names = {"/": "메인 페이지"}
+    names.update({f"/{p['slug']}/": p["kw"] for p in PAGES})
+    os.makedirs(os.path.join(ROOT, "stats"), exist_ok=True)
+    with open(os.path.join(ROOT, "stats", "pages.json"), "w") as f:
+        json.dump(names, f, ensure_ascii=False, indent=0)
     # 메인 페이지 안내 목록 갱신 (<!--guides--> ... <!--/guides--> 사이)
     idx = os.path.join(ROOT, "index.html")
     s = open(idx).read()
