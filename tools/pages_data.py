@@ -400,3 +400,5 @@ PAGES = [
 
 from pages_data2 import PAGES2
 PAGES += PAGES2
+from pages_data3 import PAGES3
+PAGES += PAGES3
