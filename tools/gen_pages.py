@@ -10,7 +10,7 @@ SITE = "웹 스튜디오"
 PHONE = "010-3406-4060"
 TEL = "01034064060"
 EMAIL = "rnjstpgns0411@naver.com"
-LASTMOD = "2026-10-20"
+LASTMOD = "2026-10-21"
 NAVER_TAG = '<meta name="naver-site-verification" content="143886b928e8811ee874b6e0498388b83ea62daa">'
 ICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232350F0'/%3E"
         "%3Ctext x='16' y='22' font-size='16' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'%3EW%3C/text%3E%3C/svg%3E")
@@ -53,7 +53,11 @@ def page(p):
               "areaServed": "KR", "url": url}
     sections = "\n".join(f"<h2>{e(h)}</h2>\n{body(b)}" for h, b in p["sections"])
     faq = "\n".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in p["faq"])
-    others = "\n".join(f'<li><a href="/{o["slug"]}/">{e(o["kw"])}</a></li>' for o in PAGES if o["slug"] != slug)
+    # 다른 안내는 이 페이지 다음 12개만 (목록이 너무 길어지지 않게, 끝에서는 처음으로 돌아감)
+    i = next(n for n, o in enumerate(PAGES) if o["slug"] == slug)
+    near = [PAGES[(i + k) % len(PAGES)] for k in range(1, 13)]
+    others = "\n".join(f'<li><a href="/{o["slug"]}/">{e(o["kw"])}</a></li>' for o in near)
+    others += '\n<li><a href="/#guides">전체 제작 안내 보기</a></li>'
     return f"""<!doctype html>
 <html lang="ko">
 <head>

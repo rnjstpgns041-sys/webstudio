@@ -404,3 +404,5 @@ from pages_data3 import PAGES3
 PAGES += PAGES3
 from pages_data4 import PAGES4
 PAGES += PAGES4
+from pages_data5 import PAGES5
+PAGES += PAGES5
