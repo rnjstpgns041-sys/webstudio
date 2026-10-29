@@ -406,3 +406,5 @@ from pages_data4 import PAGES4
 PAGES += PAGES4
 from pages_data5 import PAGES5
 PAGES += PAGES5
+from pages_data6 import PAGES6
+PAGES += PAGES6
