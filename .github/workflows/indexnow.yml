@@ -1,0 +1,26 @@
+# After each deploy, tell Naver and Bing (IndexNow) which pages are new or changed.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths: [sitemap.xml]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Submit every URL in sitemap.xml"
+        type: boolean
+        default: true
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Submit URLs
+        env:
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ github.event_name == 'workflow_dispatch' && inputs.all }}
+        run: python3 tools/indexnow.py
