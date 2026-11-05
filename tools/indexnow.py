@@ -10,12 +10,17 @@ def urls(xml):
     return re.findall(r"<loc>([^<]+)</loc>", xml)
 
 
+UA = {"User-Agent": "Mozilla/5.0 (compatible; webstudio-indexnow/1.0)"}
+
+
 def get(url):
     try:
-        with urllib.request.urlopen(url, timeout=20) as r:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=20) as r:
             return r.status
-    except Exception:
-        return 0
+    except urllib.error.HTTPError as e:
+        return e.code
+    except Exception as e:
+        return repr(e)
 
 
 now = urls(open("sitemap.xml", encoding="utf-8").read())
@@ -34,7 +39,9 @@ if not new:
 
 # Wait for Cloudflare Pages to finish deploying the key file and the newest page.
 for _ in range(40):
-    if get(f"https://{HOST}/{KEY}.txt") == 200 and get(new[-1]) == 200:
+    status = get(f"https://{HOST}/{KEY}.txt"), get(new[-1])
+    print("deploy check", status)
+    if status == (200, 200):
         break
     time.sleep(15)
 else:
@@ -42,7 +49,7 @@ else:
 
 body = json.dumps({"host": HOST, "key": KEY, "keyLocation": f"https://{HOST}/{KEY}.txt", "urlList": new}).encode()
 for ep in ENDPOINTS:
-    req = urllib.request.Request(ep, data=body, headers={"Content-Type": "application/json; charset=utf-8"})
+    req = urllib.request.Request(ep, data=body, headers={**UA, "Content-Type": "application/json; charset=utf-8"})
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
             print(ep, r.status, len(new), "URLs")
