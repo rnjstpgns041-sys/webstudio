@@ -7,8 +7,8 @@ from pages_data import PAGES, CASES
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = "https://webstudio-4e9.pages.dev"
 SITE = "웹 스튜디오"
-PHONE = "010-3406-4060"
-TEL = "01034064060"
+PHONE = "010-6378-6964"
+TEL = "01063786964"
 EMAIL = "rnjstpgns0411@naver.com"
 LASTMOD = "2026-11-05"
 NAVER_TAG = '<meta name="naver-site-verification" content="143886b928e8811ee874b6e0498388b83ea62daa">'
