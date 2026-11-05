@@ -412,3 +412,5 @@ from pages_data7 import PAGES7
 PAGES += PAGES7
 from pages_data8 import PAGES8
 PAGES += PAGES8
+from pages_data9 import PAGES9
+PAGES += PAGES9
