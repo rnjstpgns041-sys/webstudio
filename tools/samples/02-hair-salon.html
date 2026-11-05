@@ -1,0 +1,38 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>
+:root{--kr:'WenQuanYi Zen Hei',sans-serif;--bg:#111010;--ink:#F3EEE7;--mut:#A39C93;--acc:#D8B98A}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--kr)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:34px 64px;border-bottom:1px solid #2A2826}
+.logo{font:30px 'Italiana';letter-spacing:.28em}
+nav ul{display:flex;gap:48px;list-style:none;padding:0;font:14px 'WorkSans';letter-spacing:.18em;color:var(--mut)}
+nav .btn{border:1px solid var(--acc);color:var(--acc);padding:12px 24px;font-size:14px}
+.hero{display:grid;grid-template-columns:1fr 520px;height:650px}
+.l{padding:64px 64px 56px;display:flex;flex-direction:column;justify-content:space-between}
+.no{font:14px 'WorkSans';letter-spacing:.3em;color:var(--acc)}
+h1{font:400 120px/.92 'Italiana';letter-spacing:-.01em;margin-top:24px}
+h1 span{display:block;padding-left:140px;color:var(--acc)}
+.row{display:flex;justify-content:space-between;align-items:end;gap:40px}
+.row p{font-size:20px;line-height:1.7;max-width:420px}
+.row p small{display:block;color:var(--mut);font-size:15px;margin-top:12px}
+.book{background:var(--acc);color:#111;padding:20px 34px;font-size:16px;white-space:nowrap}
+.r{position:relative;background:linear-gradient(180deg,#3B332C,#1B1815);overflow:hidden}
+.r:before{content:"";position:absolute;left:70px;top:70px;width:380px;height:510px;border-radius:190px 190px 0 0;background:linear-gradient(180deg,#C9A57A,#7A5A3E 60%,#3A2C21)}
+.r:after{content:"";position:absolute;left:110px;top:110px;width:300px;height:470px;border-radius:150px 150px 0 0;border:1px solid rgba(255,240,220,.55)}
+.r i{position:absolute;left:150px;top:200px;width:220px;height:300px;border-radius:110px 110px 0 0;background:radial-gradient(ellipse at 50% 20%,#2A211A,#120E0B 70%);z-index:2}
+.r i:after{content:"MOOD";position:absolute;left:0;right:0;top:120px;text-align:center;font:44px 'Italiana';letter-spacing:.3em;color:#D8B98A}
+.r b{position:absolute;right:28px;bottom:28px;font:400 14px 'WorkSans';letter-spacing:.2em;color:var(--mut);z-index:3}
+.price{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #2A2826}
+.price div{padding:34px 64px 60px 64px;border-right:1px solid #2A2826}
+.price div:nth-child(n+2){padding-left:36px}
+.price em{font:italic 14px 'WorkSans';color:var(--acc);letter-spacing:.2em;font-style:normal}
+.price h3{font-weight:400;font-size:22px;margin:12px 0 6px}
+.price p{color:var(--mut);font-size:14px}
+</style></head><body>
+<nav><div class="logo">MOOD</div><ul><li>STYLE</li><li>DESIGNER</li><li>PRICE</li><li>LOCATION</li></ul><span class="btn">예약하기</span></nav>
+<section class="hero"><div class="l">
+<div><p class="no">HAIR SALON — 살롱 드 무드</p><h1>Your<span>Mood,</span>Styled.</h1></div>
+<div class="row"><p>얼굴형과 생활 습관까지 보고<br>오래 예쁜 머리를 제안합니다.<small>1:1 상담 후 시술 · 디자이너 지정 예약 가능</small></p><span class="book">네이버 예약 바로가기 →</span></div>
+</div><div class="r"><i></i><b>LOOKBOOK 2026</b></div></section>
+<section class="price"><div><em>01</em><h3>커트</h3><p>상담 · 샴푸 · 스타일링 포함</p></div><div><em>02</em><h3>펌</h3><p>모질 진단 후 맞춤 약제 선택</p></div><div><em>03</em><h3>컬러</h3><p>퍼스널 톤에 맞춘 색 제안</p></div><div><em>04</em><h3>클리닉</h3><p>손상 모발 집중 케어</p></div></section>
+</body></html>

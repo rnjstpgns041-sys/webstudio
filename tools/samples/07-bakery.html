@@ -1,0 +1,43 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>
+:root{--kr:'WenQuanYi Zen Hei',sans-serif;--bg:#FFF8EC;--ink:#3B2414;--mut:#8A6E58;--acc:#C8792F;--cr:#F3E2C4}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--kr)}
+.strip{background:var(--acc);color:#FFF4E2;font-size:14px;text-align:center;padding:10px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 72px}
+.logo{font:28px 'YoungSerif'}.logo small{font:13px var(--kr);color:var(--mut);margin-left:10px}
+nav ul{display:flex;gap:40px;list-style:none;padding:0;font-size:15px;color:var(--mut)}
+nav .btn{border:1.5px solid var(--ink);padding:11px 20px;border-radius:12px;font-size:14px}
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;padding:20px 72px 30px;align-items:center}
+.ov{font:15px 'YoungSerif';color:var(--acc);letter-spacing:.06em}
+h1{font:400 80px/1.05 'YoungSerif';margin:16px 0 22px;letter-spacing:-.02em}
+.kr{font-size:26px;line-height:1.5}
+.hero p.d{color:var(--mut);font-size:16px;line-height:1.85;margin-top:16px;max-width:460px}
+.cta{display:flex;gap:12px;margin-top:30px}.cta a{background:var(--ink);color:#FFF8EC;padding:16px 26px;border-radius:14px;font-size:15px}.cta a+a{background:var(--cr);color:var(--ink)}
+.time{margin-top:28px;display:inline-flex;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:14px 20px;font-size:14px;color:var(--mut)}
+.time b{font-weight:400;color:var(--ink)}.time i{width:10px;height:10px;border-radius:50%;background:#4CAF6A}
+.board{position:relative;height:560px;background:var(--cr);border-radius:40px;overflow:hidden}
+.board:before{content:"";position:absolute;inset:auto 0 0 0;height:150px;background:repeating-linear-gradient(90deg,#B98552 0 60px,#A87443 60px 120px)}
+.bread{position:absolute}
+.loaf{left:70px;top:150px;width:300px;height:190px;border-radius:150px 150px 60px 60px;background:radial-gradient(ellipse at 50% 30%,#E8A85E,#B66A2A 70%)}
+.loaf:after{content:"";position:absolute;left:60px;top:50px;width:180px;height:14px;border-radius:8px;background:#F6D7A6;box-shadow:0 34px 0 #F6D7A6,0 68px 0 #F6D7A6;transform:rotate(-14deg)}
+.cro{right:90px;top:90px;width:220px;height:120px;border-radius:120px 120px 30px 30px;background:repeating-linear-gradient(100deg,#D88F3E 0 28px,#C27628 28px 34px)}
+.bun{width:120px;height:90px;border-radius:60px 60px 20px 20px;background:radial-gradient(ellipse at 50% 25%,#F0C48A,#C8812F 75%)}
+.bun:after{content:"";position:absolute;left:30px;top:22px;width:60px;height:10px;border-radius:5px;background:rgba(255,240,215,.8)}
+.price{left:44px;top:40px;background:#fff;border-radius:18px;padding:16px 20px;font-size:14px;box-shadow:0 20px 30px -20px rgba(59,36,20,.5)}
+.price b{display:block;font:22px 'YoungSerif'}
+.menu{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:0 72px}
+.menu div{border-top:2px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between}
+.menu h3{font-weight:400;font-size:18px}.menu span{font:18px 'YoungSerif';color:var(--acc)}
+</style></head><body>
+<div class="strip">오늘의 빵은 오전 11시, 오후 3시 두 번 나옵니다 · 예약 픽업 가능</div>
+<nav><div class="logo">Mil &amp; Gyeol<small>밀과 결 베이커리</small></div><ul><li>오늘의 빵</li><li>케이크 주문</li><li>매장 이야기</li><li>오시는 길</li></ul><span class="btn">케이크 예약</span></nav>
+<section class="hero"><div><p class="ov">SOURDOUGH · PASTRY · CAKE</p>
+<h1>Baked fresh,<br>every day.</h1>
+<p class="kr">천연 발효종으로 하루를 꼬박 기다려<br>구워 내는 동네 빵집입니다.</p>
+<p class="d">버터와 밀가루는 매일 쓸 만큼만 들이고, 그날 구운 빵은 그날 모두 판매합니다.</p>
+<div class="cta"><a>오늘의 빵 보기</a><a>케이크 예약하기</a></div>
+<div class="time"><i></i><b>지금 영업 중</b>화–일 10:00 – 20:00 · 월요일 휴무</div></div>
+<div class="board"><div class="bread loaf"></div><div class="bread cro"></div><div class="bread bun" style="left:330px;top:320px"></div><div class="bread bun" style="left:440px;top:300px;transform:scale(.85)"></div><div class="bread price"><b>Today's pick</b>무화과 캄파뉴</div></div></section>
+<section class="menu"><div><h3>캄파뉴</h3><span>7.5</span></div><div><h3>버터 크루아상</h3><span>4.2</span></div><div><h3>소금빵</h3><span>3.0</span></div><div><h3>딸기 생크림 케이크</h3><span>38</span></div></section>
+</body></html>

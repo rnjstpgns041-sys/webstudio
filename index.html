@@ -130,6 +130,21 @@ section.alt .tabs { background: var(--bg); }
 .chips span { font-size: 12.5px; padding: 4px 10px; border-radius: 6px; background: var(--soft); color: var(--muted); }
 section.alt .chips span { background: var(--bg); }
 
+/* 디자인 예시 (가상 가게 샘플) */
+.samples-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.samples-head .arrows { display: flex; gap: 8px; }
+.samples-head .arrows button { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font-size: 18px; cursor: pointer; }
+.samples-head .arrows button:hover { border-color: var(--ink); }
+.samples { display: grid; grid-auto-flow: column; grid-auto-columns: min(520px, 82%); gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 0 18px; margin-top: 32px; scrollbar-width: thin; }
+.sample { scroll-snap-align: start; display: grid; gap: 14px; min-width: 0; text-decoration: none; }
+.sample .frame { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--bg); transition: transform .3s, box-shadow .3s; }
+.sample:hover .frame { transform: translateY(-4px); box-shadow: 0 24px 40px -26px rgba(12,20,36,.45); }
+.sample img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; }
+.sample .kind { font-size: 13px; font-weight: 700; color: var(--accent); }
+.sample h3 { font-size: 18px; font-weight: 800; margin-top: 2px; }
+.sample p { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.samples-note { margin-top: 10px; font-size: 13px; color: var(--muted); }
+
 /* 기능 */
 .feats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
 .feat { padding: 30px 28px 34px 0; border-bottom: 1px solid var(--line); display: grid; gap: 10px; align-content: start; min-width: 0; }
@@ -396,6 +411,64 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
           </div>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section class="block" id="samples">
+    <div class="wrap">
+      <div class="samples-head">
+        <div class="head" style="margin-bottom:0">
+          <div>
+            <span class="tag">디자인 예시</span>
+            <h2>업종별로 이런 느낌으로 만들어 드려요</h2>
+            <p>실제 가게가 아니라 업종별 분위기를 보여 드리려고 직접 만든 예시 화면입니다. 마음에 드는 느낌을 골라 말씀해 주시면 사장님 가게에 맞게 만들어 드립니다.</p>
+          </div>
+        </div>
+        <div class="arrows"><button type="button" data-dir="-1" aria-label="이전 예시">←</button><button type="button" data-dir="1" aria-label="다음 예시">→</button></div>
+      </div>
+      <div class="samples" id="samples-row">
+        <a class="sample" href="/img/samples/01-cafe.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/01-cafe.webp" width="1200" height="750" loading="lazy" alt="카페 홈페이지 디자인 예시: 온결 커피 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 카페</span><h3>온결 커피</h3><p>따뜻한 베이지 톤에 대표 메뉴와 영업 시간을 첫 화면에 담은 로스터리 카페</p></div>
+        </a>
+        <a class="sample" href="/img/samples/02-hair-salon.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/02-hair-salon.webp" width="1200" height="750" loading="lazy" alt="미용실 홈페이지 디자인 예시: 살롱 드 무드 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 미용실</span><h3>살롱 드 무드</h3><p>블랙과 골드로 고급스럽게, 예약 버튼과 시술 안내를 앞에 둔 헤어 살롱</p></div>
+        </a>
+        <a class="sample" href="/img/samples/03-pilates.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/03-pilates.webp" width="1200" height="750" loading="lazy" alt="필라테스 홈페이지 디자인 예시: 코어앤브리드 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 필라테스</span><h3>코어앤브리드</h3><p>차분한 초록 톤 카드형 화면에 정원과 이번 주 시간표를 보여 주는 스튜디오</p></div>
+        </a>
+        <a class="sample" href="/img/samples/04-academy.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/04-academy.webp" width="1200" height="750" loading="lazy" alt="학원 홈페이지 디자인 예시: 새봄 수학학원 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 학원</span><h3>새봄 수학학원</h3><p>밝은 파랑과 노랑으로 레벨 테스트 신청이 눈에 띄게 만든 수학 학원</p></div>
+        </a>
+        <a class="sample" href="/img/samples/05-interior.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/05-interior.webp" width="1200" height="750" loading="lazy" alt="인테리어 홈페이지 디자인 예시: 하우스 결 인테리어 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 인테리어</span><h3>하우스 결 인테리어</h3><p>잡지처럼 정돈된 화면에 진행 과정 4단계를 함께 보여 주는 인테리어 업체</p></div>
+        </a>
+        <a class="sample" href="/img/samples/06-flower.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/06-flower.webp" width="1200" height="750" loading="lazy" alt="꽃집 홈페이지 디자인 예시: 봄날의 정원 플라워 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 꽃집</span><h3>봄날의 정원 플라워</h3><p>분홍 톤 꽃다발 그림과 주문 종류를 한눈에 고르는 꽃집</p></div>
+        </a>
+        <a class="sample" href="/img/samples/07-bakery.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/07-bakery.webp" width="1200" height="750" loading="lazy" alt="베이커리 홈페이지 디자인 예시: 밀과 결 베이커리 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 베이커리</span><h3>밀과 결 베이커리</h3><p>빵 나오는 시간 안내 띠와 오늘의 메뉴 가격표를 넣은 동네 빵집</p></div>
+        </a>
+        <a class="sample" href="/img/samples/08-pet-salon.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/08-pet-salon.webp" width="1200" height="750" loading="lazy" alt="애견 미용 홈페이지 디자인 예시: 몽글 펫살롱 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 애견 미용</span><h3>몽글 펫살롱</h3><p>귀여운 그림과 파스텔 색으로 예약을 부르는 반려동물 미용실</p></div>
+        </a>
+        <a class="sample" href="/img/samples/09-tax-office.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/09-tax-office.webp" width="1200" height="750" loading="lazy" alt="세무사 사무실 홈페이지 디자인 예시: 정담 세무회계 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 세무사 사무실</span><h3>정담 세무회계</h3><p>짙은 초록과 금색으로 믿음을 주고 이번 달 신고 일정을 보여 주는 사무실</p></div>
+        </a>
+        <a class="sample" href="/img/samples/10-pension.webp" target="_blank" rel="noopener">
+          <div class="frame"><img src="/img/samples/10-pension.webp" width="1200" height="750" loading="lazy" alt="펜션 홈페이지 디자인 예시: 솔바람 펜션 첫 화면"></div>
+          <div><span class="kind">디자인 예시 · 펜션</span><h3>솔바람 펜션</h3><p>노을 지는 숲 풍경 위에 날짜 고르고 빈 객실을 확인하는 펜션</p></div>
+        </a>
+      </div>
+      <p class="samples-note">※ 가게 이름과 내용은 모두 예시로 지어낸 것입니다. 옆으로 넘겨 10가지 예시를 모두 보실 수 있어요.</p>
     </div>
   </section>
 
@@ -981,6 +1054,14 @@ footer strong { color: var(--ink); font-size: 16px; display: block; margin-botto
     t.addEventListener('click', function () {
       tabs.forEach(function (x) { x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
       works.forEach(function (w) { w.hidden = !(t.dataset.f === 'all' || w.dataset.k === t.dataset.f); });
+    });
+  });
+
+  var row = document.getElementById('samples-row');
+  document.querySelectorAll('#samples .arrows button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var card = row.querySelector('.sample');
+      row.scrollBy({ left: (card ? card.offsetWidth + 24 : 400) * +b.dataset.dir, behavior: 'smooth' });
     });
   });
 

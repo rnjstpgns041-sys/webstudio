@@ -1,0 +1,41 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>
+:root{--kr:'WenQuanYi Zen Hei',sans-serif;--bg:#F6F1FF;--ink:#2A2140;--mut:#6F6688;--acc:#7B5CFA;--y:#FFD66B}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--kr)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:28px 72px}
+.logo{font:700 26px 'Outfit';display:flex;align-items:center;gap:10px}.logo small{font:400 14px var(--kr);color:var(--mut)}
+.paw{width:30px;height:30px;position:relative}.paw:before{content:"";position:absolute;left:7px;top:12px;width:16px;height:14px;border-radius:50%;background:var(--acc)}.paw:after{content:"";position:absolute;left:3px;top:2px;width:6px;height:8px;border-radius:50%;background:var(--acc);box-shadow:8px -2px 0 var(--acc),16px 0 0 var(--acc)}
+nav ul{display:flex;gap:40px;list-style:none;padding:0;font-size:15px;color:var(--mut)}
+nav .btn{background:var(--acc);color:#fff;padding:13px 22px;border-radius:16px;font-size:14px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;padding:10px 72px;height:600px}
+.chip{display:inline-block;background:var(--y);padding:8px 16px;border-radius:999px;font-size:14px}
+h1{font:400 64px/1.25 var(--kr);letter-spacing:-.04em;margin:24px 0 20px}
+h1 span{color:var(--acc)}
+.hero p{font-size:18px;line-height:1.8;color:var(--mut)}
+.cta{display:flex;gap:12px;margin-top:32px}.cta a{background:var(--ink);color:#fff;padding:17px 28px;border-radius:18px;font-size:15px}.cta a+a{background:#fff;color:var(--ink)}
+.stage{position:relative;height:540px}
+.blob{position:absolute;inset:30px 20px 0 40px;border-radius:44% 56% 52% 48%/48% 42% 58% 52%;background:linear-gradient(160deg,#C9B8FF,#9D84FF)}
+.dog{position:absolute;left:150px;top:120px;width:320px;height:320px}
+.dog .face{position:absolute;left:40px;top:40px;width:240px;height:220px;border-radius:50% 50% 46% 46%;background:#FFF6E6}
+.dog .ear{position:absolute;top:20px;width:110px;height:170px;border-radius:50%;background:#E9C79A}
+.dog .ear.l{left:-10px;transform:rotate(18deg)}.dog .ear.r{right:-10px;transform:rotate(-18deg)}
+.dog .eye{position:absolute;top:130px;width:22px;height:26px;border-radius:50%;background:#2A2140}
+.dog .nose{position:absolute;left:140px;top:175px;width:40px;height:28px;border-radius:50%;background:#2A2140}
+.dog .bow{position:absolute;left:120px;top:20px;width:80px;height:40px;background:conic-gradient(from 45deg,var(--y) 0 25%,transparent 0 50%,var(--y) 0 75%,transparent 0);border-radius:8px}
+.bub{position:absolute;background:#fff;border-radius:20px;padding:14px 18px;font-size:14px;box-shadow:0 20px 30px -20px rgba(42,33,64,.4)}
+.bub b{display:block;font:700 18px 'Outfit';color:var(--acc)}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:20px 72px}
+.svc div{background:#fff;border-radius:24px;padding:24px}
+.svc em{font:700 13px 'Outfit';color:var(--acc);font-style:normal}.svc h3{font-weight:400;font-size:19px;margin:8px 0 4px}.svc p{font-size:14px;color:var(--mut)}
+</style></head><body>
+<nav><div class="logo"><i class="paw"></i>mongle<small>몽글 펫살롱</small></div><ul><li>미용 안내</li><li>스타일 갤러리</li><li>호텔·놀이방</li><li>예약</li></ul><span class="btn">미용 예약하기</span></nav>
+<section class="hero"><div><span class="chip">소형견 · 고양이 1:1 전담 미용</span>
+<h1>우리 아이가<br><span>편안한</span> 미용 시간</h1>
+<p>한 번에 한 아이만 맡아 무리하지 않게 진행합니다.<br>미용 중간중간 사진을 보내 드려 안심할 수 있어요.</p>
+<div class="cta"><a>예약 가능 시간 보기</a><a>미용 가격 안내</a></div></div>
+<div class="stage"><div class="blob"></div>
+<div class="dog"><i class="ear l"></i><i class="ear r"></i><i class="face"></i><i class="eye" style="left:105px"></i><i class="eye" style="left:195px"></i><i class="nose"></i><i class="bow"></i></div>
+<div class="bub" style="left:0;top:90px"><b>Spa</b>저자극 목욕 · 보습</div><div class="bub" style="right:0;bottom:80px"><b>Photo</b>미용 후 사진 촬영</div></div></section>
+<section class="svc"><div><em>BATH</em><h3>목욕</h3><p>피모 상태에 맞춘 샴푸</p></div><div><em>CUT</em><h3>전체 미용</h3><p>스타일 상담 후 진행</p></div><div><em>CARE</em><h3>부분 관리</h3><p>발 · 위생 · 얼굴 컷</p></div><div><em>HOTEL</em><h3>데이 케어</h3><p>외출할 때 맡겨 주세요</p></div></section>
+</body></html>

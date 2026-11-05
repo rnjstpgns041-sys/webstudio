@@ -1,0 +1,40 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>
+:root{--kr:'WenQuanYi Zen Hei',sans-serif;--bg:#FBF1EF;--ink:#3A1F25;--mut:#8C6B70;--acc:#D9677E;--leaf:#5F7A55}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--kr)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:30px 72px}
+.logo{font:italic 32px 'Lora'}.logo span{font:13px var(--kr);font-style:normal;color:var(--mut);margin-left:10px}
+nav ul{display:flex;gap:40px;list-style:none;padding:0;font-size:15px;color:var(--mut)}
+nav .btn{background:var(--acc);color:#fff;padding:12px 22px;border-radius:999px;font-size:14px}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:10px 72px;height:610px}
+.small{font:italic 20px 'Lora';color:var(--acc)}
+h1{font:400 58px/1.3 var(--kr);letter-spacing:-.04em;margin:20px 0 24px}
+h1 i{font:italic 72px 'Lora';color:var(--acc)}
+.hero p{font-size:17px;line-height:1.85;color:var(--mut);max-width:460px}
+.cta{display:flex;gap:12px;margin-top:34px}.cta a{padding:16px 28px;border-radius:999px;background:var(--ink);color:#fff;font-size:15px}.cta a+a{background:#fff;color:var(--ink)}
+.bouquet{position:relative;height:600px}
+.circle{position:absolute;left:50%;top:50%;width:520px;height:520px;transform:translate(-50%,-50%);border-radius:50%;background:#F4D9D6}
+.fl{position:absolute;border-radius:50%}
+.rose{width:var(--s);height:var(--s);background:radial-gradient(circle,#B8405A 0 14%,#D9677E 15% 30%,#E68B9C 31% 46%,#F0AFBA 47% 62%,#F7CDD3 63%)}
+.peony{width:var(--s);height:var(--s);background:radial-gradient(circle,#F6E3B8 0 18%,#FFF7F2 19% 40%,#FCE4E4 41% 62%,#F5CACF 63%)}
+.leaf{position:absolute;width:70px;height:160px;border-radius:0 100% 0 100%;background:var(--leaf)}
+.wrap{position:absolute;left:50%;bottom:30px;width:240px;height:220px;transform:translateX(-50%);clip-path:polygon(0 0,100% 0,62% 100%,38% 100%);background:linear-gradient(90deg,#EADBC8,#F7EEE3,#EADBC8)}
+.tag2{position:absolute;right:30px;top:60px;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 20px 40px -24px rgba(58,31,37,.5);font-size:14px}
+.tag2 b{display:block;font:italic 22px 'Lora';color:var(--acc)}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:0 72px}
+.cats div{background:#fff;border-radius:22px;padding:24px;display:flex;gap:16px;align-items:center}
+.cats i{width:56px;height:56px;border-radius:50%;flex:none}
+.cats h3{font-weight:400;font-size:18px}.cats p{font-size:13px;color:var(--mut)}
+</style></head><body>
+<nav><div class="logo">Spring Garden<span>봄날의 정원 플라워</span></div><ul><li>꽃다발</li><li>꽃바구니</li><li>정기 구독</li><li>당일 배송</li></ul><span class="btn">주문 상담하기</span></nav>
+<section class="hero"><div><p class="small">Flowers for every moment</p>
+<h1>마음을 전하는 날,<br><i>bloom</i> 한 다발</h1>
+<p>생일, 기념일, 개업 축하까지. 받는 분의 취향과 예산을 말씀해 주시면 그날 들어온 가장 좋은 꽃으로 엮어 드립니다.</p>
+<div class="cta"><a>꽃다발 둘러보기</a><a>당일 배송 문의</a></div></div>
+<div class="bouquet"><div class="circle"></div>
+<div class="leaf" style="left:150px;top:150px;transform:rotate(-40deg)"></div><div class="leaf" style="left:400px;top:140px;transform:rotate(50deg) scaleX(-1)"></div><div class="leaf" style="left:180px;top:300px;transform:rotate(-80deg)"></div>
+<div class="fl rose" style="--s:150px;left:220px;top:130px"></div><div class="fl peony" style="--s:170px;left:330px;top:200px"></div><div class="fl peony" style="--s:130px;left:150px;top:240px"></div><div class="fl rose" style="--s:110px;left:300px;top:320px"></div><div class="fl rose" style="--s:90px;left:420px;top:130px"></div>
+<div class="wrap"></div><div class="tag2"><b>Today</b>작약 · 장미 · 유칼립투스</div></div></section>
+<section class="cats"><div><i style="background:#F4C6CE"></i><span><h3>꽃다발</h3><p>생일 · 기념일 · 고백</p></span></div><div><i style="background:#F6E3B8"></i><span><h3>꽃바구니</h3><p>부모님 · 감사 인사</p></span></div><div><i style="background:#C9D8BE"></i><span><h3>개업 화분</h3><p>매장 · 사무실 축하</p></span></div><div><i style="background:#E4D4F0"></i><span><h3>정기 구독</h3><p>격주로 집 앞까지</p></span></div></section>
+</body></html>
