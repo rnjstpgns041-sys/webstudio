@@ -156,6 +156,17 @@ def main():
     s, n = re.subn(r"<!--guides-->.*?<!--/guides-->", "<!--guides-->\n" + items + "\n          <!--/guides-->", s, flags=re.S)
     assert n == 1, "index.html에 <!--guides--> 표시가 없습니다"
     open(idx, "w").write(s)
+    # AI 검색용 사이트 요약 (/llms.txt)
+    with open(os.path.join(ROOT, "llms.txt"), "w") as f:
+        f.write(f"# {SITE}\n\n> 소상공인·1인 사업자를 위한 홈페이지 제작. 방문 없이 전화·문자로 전국 진행. "
+                f"한 장 소개 29만원, 기본 홈페이지 59만원, 검색 노출형 89만원(부가세 없음), 월 관리비 필수 아님.\n\n"
+                f"- 전화·문자: {PHONE}\n- 메일: {EMAIL}\n- 사이트: {BASE}/\n\n## 핵심 안내\n\n")
+        core = ["homepage-cost", "homepage-300k", "how-to-make-homepage", "sosanggongin-homepage", "homepage-portfolio-cases",
+                "homepage-in-ai-era", "geo-optimization", "more-phone-calls"]
+        by = {p["slug"]: p for p in PAGES}
+        f.writelines(f"- [{by[s]['kw']}]({BASE}/{s}/): {by[s]['lede']}\n" for s in core if s in by)
+        f.write("\n## 전체 안내\n\n")
+        f.writelines(f"- [{p['kw']}]({BASE}/{p['slug']}/)\n" for p in PAGES)
     print(f"{len(PAGES)} pages, {len(urls)} urls")
 
 

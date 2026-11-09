@@ -1,0 +1,15 @@
+# 매일 오전 8시(한국 시간)에 문의로 이어질 만한 페이지 30개를 네이버·빙(IndexNow)에 색인 요청한다.
+name: Daily index 08:00 KST
+
+on:
+  schedule:
+    - cron: "0 23 * * *"  # UTC 23:00 = 한국 08:00
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Submit 30 URLs
+        run: python3 tools/daily_index.py
